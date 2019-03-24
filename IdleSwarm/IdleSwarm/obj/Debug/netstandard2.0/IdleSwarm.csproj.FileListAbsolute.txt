@@ -1,0 +1,12 @@
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\bin\Debug\netstandard2.0\IdleSwarm.deps.json
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\bin\Debug\netstandard2.0\IdleSwarm.dll
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\bin\Debug\netstandard2.0\IdleSwarm.pdb
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\obj\Debug\netstandard2.0\IdleSwarm.csproj.CoreCompileInputs.cache
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\obj\Debug\netstandard2.0\IdleSwarm.AssemblyInfoInputs.cache
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\obj\Debug\netstandard2.0\IdleSwarm.AssemblyInfo.cs
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\obj\Debug\netstandard2.0\IdleSwarm.dll
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\obj\Debug\netstandard2.0\IdleSwarm.pdb
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\obj\Debug\netstandard2.0\IdleSwarm.csprojAssemblyReference.cache
+C:\Users\devlin\source\repos\IdleSwarm\IdleSwarm\IdleSwarm\obj\Debug\netstandard2.0\XamlC.stamp
