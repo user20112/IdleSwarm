@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "f39c1cc0bbc4dd623bde40ee8b4118709c62ed69"
+    "signature": "fbee7ca1f6757e73d960c1934f278544a52b6d38"
   },
   "compilationOptions": {},
   "targets": {
@@ -11,7 +11,7 @@
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "Xamarin.Essentials": "1.1.0",
-          "Xamarin.Forms": "3.4.0.1008975"
+          "Xamarin.Forms": "3.6.0.264807"
         },
         "runtime": {
           "IdleSwarm.dll": {}
@@ -42,7 +42,7 @@
           }
         }
       },
-      "Xamarin.Forms/3.4.0.1008975": {
+      "Xamarin.Forms/3.6.0.264807": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
             "assemblyVersion": "2.0.0.0",
@@ -94,12 +94,12 @@
       "path": "xamarin.essentials/1.1.0",
       "hashPath": "xamarin.essentials.1.1.0.nupkg.sha512"
     },
-    "Xamarin.Forms/3.4.0.1008975": {
+    "Xamarin.Forms/3.6.0.264807": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tM9syeev45u92OFENGjq+Zw8WiEwLJFiXe317XpL9SY2RRk9sm2fc1lDVjzwz0da+5ZP5fi24NAPsPQdxBdMwQ==",
-      "path": "xamarin.forms/3.4.0.1008975",
-      "hashPath": "xamarin.forms.3.4.0.1008975.nupkg.sha512"
+      "sha512": "sha512-PbnXpStyxNYJzPrXXMW17F4YeMsFAs6YT9LL2vxObDWCGtaKkLia4UyBPF3Qbhy+lQPeap/ijV1Rlvasp4DFiA==",
+      "path": "xamarin.forms/3.6.0.264807",
+      "hashPath": "xamarin.forms.3.6.0.264807.nupkg.sha512"
     }
   }
 }

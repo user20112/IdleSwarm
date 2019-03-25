@@ -1,7 +1,5 @@
-﻿using IdleSwarm.Classes;
-using System;
-using System.ComponentModel;
-using System.Threading;
+﻿using System.ComponentModel;
+using System.Numerics;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -11,6 +9,7 @@ namespace IdleSwarm.Droid.Classes
     {
         //Display InterfaceSection
         public bool _button2IsVisible = false;
+
         public bool Button2IsVisible
         {
             get { return _button2IsVisible; }
@@ -20,7 +19,9 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(Button2IsVisible));
             }
         }
+
         public bool _button1IsVisible = false;
+
         public bool Button1IsVisible
         {
             get { return _button1IsVisible; }
@@ -30,9 +31,11 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(Button1IsVisible));
             }
         }
+
         public ICommand ButtonLeft { get; set; }
         public ICommand ButtonRight { get; set; }
         public ImageSource _image;
+
         public ImageSource Image
         {
             get { return _image; }
@@ -42,7 +45,9 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(Image));
             }
         }
+
         public string _leftButtonText = "Research";
+
         public string LeftButtonText
         {
             get { return _leftButtonText; }
@@ -52,7 +57,9 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(LeftButtonText));
             }
         }
+
         public string _rightButtonText = "Research";
+
         public string RightButtonText
         {
             get { return _rightButtonText; }
@@ -60,7 +67,9 @@ namespace IdleSwarm.Droid.Classes
             {
             }
         }
+
         public string _displayLabel;
+
         public string DisplayLabel
         {
             get { return _displayLabel; }
@@ -70,7 +79,9 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(DisplayLabel));
             }
         }
+
         public string _description;
+
         public string Description
         {
             get { return _description; }
@@ -80,22 +91,27 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(Description));
             }
         }
-        public int VespRequired { get; set; }
-        public int MineralsRequired { get; set; }
+
+        public BigInteger VespRequired { get; set; }
+        public BigInteger MineralsRequired { get; set; }
+
         public string ThirdDisplayLabel
         {
             get { return "ChambersRequired: " + EvolutionChambersRequired.ToString(); }
             set { }
         }
+
         //Display Interface Section
 
         //Inotify InterfaceSection
         public event PropertyChangedEventHandler PropertyChanged;
-        string ImagePath;
+
+        private string ImagePath;
         //Inotify Interface Section
 
-        MainPageViewModel Page;
-        string _count = "0";
+        private MainPageViewModel Page;
+        private string _count = "0";
+
         public string Count
         {
             get { return _count; }
@@ -105,10 +121,12 @@ namespace IdleSwarm.Droid.Classes
                 DisplayLabel = Name;
             }
         }
+
         public string Name;
         public int DronesRequired;
         public int EvolutionChambersRequired;
         public bool _canAfford = false;
+
         public bool CanAfford
         {
             get
@@ -137,8 +155,8 @@ namespace IdleSwarm.Droid.Classes
             DisplayLabel = Name;
             ButtonRight = UpgradeClick;
         }
-        
-        void OnPropertyChanged(string propertyName)
+
+        private void OnPropertyChanged(string propertyName)
         {
             var propertyChangedCallback = PropertyChanged;
             propertyChangedCallback?.Invoke(this, new PropertyChangedEventArgs(propertyName));

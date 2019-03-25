@@ -11,6 +11,7 @@ namespace IdleSwarm.Droid.Classes
     {
         //Display Interface
         public bool _button2IsVisible = true;
+
         public bool Button2IsVisible
         {
             get { return _button2IsVisible; }
@@ -20,7 +21,9 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(Button2IsVisible));
             }
         }
+
         public bool _button1IsVisible = true;
+
         public bool Button1IsVisible
         {
             get { return _button1IsVisible; }
@@ -30,9 +33,11 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(Button1IsVisible));
             }
         }
+
         public ICommand ButtonLeft { get; set; }
         public ICommand ButtonRight { get; set; }
         public ImageSource _image;
+
         public ImageSource Image
         {
             get { return _image; }
@@ -42,7 +47,9 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(Image));
             }
         }
+
         public string _leftButtonText = "0";
+
         public string LeftButtonText
         {
             get { return Page.NumberPerClick.ToString(); }
@@ -52,7 +59,9 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(LeftButtonText));
             }
         }
+
         public string _rightButtonText = "0";
+
         public string RightButtonText
         {
             get { return _rightButtonText; }
@@ -62,7 +71,9 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(RightButtonText));
             }
         }
+
         public string _displayLabel;
+
         public string DisplayLabel
         {
             get { return _displayLabel; }
@@ -72,7 +83,9 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(DisplayLabel));
             }
         }
+
         public string _description;
+
         public string Description
         {
             get { return _description; }
@@ -82,8 +95,10 @@ namespace IdleSwarm.Droid.Classes
                 OnPropertyChanged(nameof(Description));
             }
         }
-        public int VespRequired { get; set; }
-        public int MineralsRequired { get; set; }
+
+        public BigInteger VespRequired { get; set; }
+        public BigInteger MineralsRequired { get; set; }
+
         public string ThirdDisplayLabel
         {
             get { return "Larva Required: " + LarvaRequired.ToString(); }
@@ -91,10 +106,11 @@ namespace IdleSwarm.Droid.Classes
         }
 
         //end Display Interface
+        private Thread IncomeThread;
 
-        Thread IncomeThread;
         public string Name;
-        string _count = "0";
+        private string _count = "0";
+
         public string Count
         {
             get { return _count; }
@@ -105,14 +121,18 @@ namespace IdleSwarm.Droid.Classes
             }
         }
 
-        int IncomeSpeed;
+        public int IncreasePerBuy = 0;
+
+        public Func<BigInteger> OtherRestrictions = DefualtOtherRestrictions;
+        private int IncomeSpeed;
         public int MineralsPerRound = 5;
         public int VespPerRound = 0;
         public int LarvaPerRound = 0;
         public int LarvaRequired = 1;
         public int SupplyRequired = 1;
         public int SupplyProvided = 0;
-        BigInteger _numberCanAfford = 0;
+        private BigInteger _numberCanAfford = 0;
+
         public BigInteger NumberCanAfford
         {
             get { return _numberCanAfford; }
@@ -130,7 +150,9 @@ namespace IdleSwarm.Droid.Classes
                 }
             }
         }
-        int _numberPerClick = 1;
+
+        private int _numberPerClick = 1;
+
         public int NumberPerClick
         {
             get { return _numberPerClick; }
@@ -141,9 +163,17 @@ namespace IdleSwarm.Droid.Classes
             }
         }
 
-        MainPageViewModel Page;
-        string ImagePath;
+        private void OnPropertyChanged(string propertyName)
+        {
+            var propertyChangedCallback = PropertyChanged;
+            propertyChangedCallback?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private MainPageViewModel Page;
+        private string ImagePath;
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         public UnitRow(MainPageViewModel Mainpage, string name, string imagepath, int mineralPerRound, int vespPerRound, int larvaPerRound, int mineralCost, int vespCost, int larvaCost, int incomeSpeed, string description, int SupplyRequirement, int supplyProvided)
         {
             SupplyProvided = supplyProvided;
@@ -166,6 +196,10 @@ namespace IdleSwarm.Droid.Classes
             IncomeThread = new Thread(new ThreadStart(IncomeFunction));
             IncomeThread.Start();
         }
+        ~UnitRow()
+        {
+            IncomeThread.Abort();
+        }
         public UnitRow(MainPageViewModel mainpage, string name)
         {
             Page = mainpage;
@@ -183,66 +217,89 @@ namespace IdleSwarm.Droid.Classes
                         case 0:
                             Name = CurrentData;
                             break;
+
                         case 1:
                             SupplyProvided = Convert.ToInt32(CurrentData);
                             break;
+
                         case 2:
                             SupplyRequired = Convert.ToInt32(CurrentData);
                             break;
+
                         case 3:
                             Description = CurrentData;
                             break;
+
                         case 4:
                             IncomeSpeed = Convert.ToInt32(CurrentData);
                             break;
+
                         case 5://min
                             MineralsPerRound = Convert.ToInt32(CurrentData);
                             break;
+
                         case 6://vesp
                             VespPerRound = Convert.ToInt32(CurrentData);
                             break;
+
                         case 7://larv
                             LarvaPerRound = Convert.ToInt32(CurrentData);
                             break;
+
                         case 8:
                             MineralsRequired = Convert.ToInt32(CurrentData);
                             break;
+
                         case 9:
                             VespRequired = Convert.ToInt32(CurrentData);
                             break;
+
                         case 10:
                             LarvaRequired = Convert.ToInt32(CurrentData);
                             break;
+
                         case 11:
                             Image = CurrentData;
                             ImagePath = CurrentData;
                             break;
+
                         case 12:
                             Count = CurrentData;
-                            if (Name == "Overlord")
+                            switch (Name)
                             {
-                                ButtonLeft = new Command(OverlordBuySelection);
-                                ButtonRight = new Command(OverlordBuyAll);
-                                IncomeThread = new Thread(new ThreadStart(IncomeFunction));
-                                IncomeThread.Start();
-                            }
-                            else
-                            {
-                                if (Name == "Infested Terran")
-                                {
+                                case "Drone":
+                                    ButtonRight = new Command(DroneBuyAll);
+                                    ButtonLeft = new Command(DroneBuySelection);
+                                    OtherRestrictions = DroneOtherRestrictions;
+                                    break;
+
+                                case "Zergling":
+                                    ButtonLeft = new Command(ZerglingBuySelection);
+                                    ButtonRight = new Command(ZerglingBuyAll);
+                                    break;
+
+                                case "Roach":
+
+                                    break;
+
+                                case "Queen":
+                                    ButtonLeft = new Command(QueenBuySelection);
+                                    ButtonLeft = new Command(QueenBuyAll);
+                                    OtherRestrictions = QueenOtherRestrictions;
+                                    break;
+
+                                case "Infested Terran":
                                     Button1IsVisible = false;
                                     Button2IsVisible = false;
-                                    IncomeThread = new Thread(new ThreadStart(IncomeFunction));
-                                    IncomeThread.Start();
-                                }
-                                else
-                                {
-                                    ButtonLeft = new Command(BuySelectionFunction);
-                                    ButtonRight = new Command(BuyAllFunction);
-                                    IncomeThread = new Thread(new ThreadStart(IncomeFunction));
-                                    IncomeThread.Start();
-                                }
+                                    break;
+
+                                case "Overlord":
+                                    ButtonLeft = new Command(OverlordBuySelection);
+                                    ButtonRight = new Command(OverlordBuyAll);
+                                    break;
                             }
+                            IncomeThread = new Thread(new ThreadStart(IncomeFunction));
+                            IncomeThread.Start();
                             break;
                     }
                     NumberSeenAlready++;
@@ -254,7 +311,8 @@ namespace IdleSwarm.Droid.Classes
                 }
             }
         }
-        void IncomeFunction()
+
+        private void IncomeFunction()
         {
             Page.Free.WaitOne();
             while (Page.Running)
@@ -265,7 +323,8 @@ namespace IdleSwarm.Droid.Classes
                 Page.LarvaValue = (Page.LarvaValue + LarvaPerRound * BigInteger.Parse(Count));
             }
         }
-        void BuySelectionFunction()
+
+        private void BuySelectionFunction()
         {
             Page.Free.WaitOne();
             if (Page.MineralValue >= (BigInteger)Page.NumberPerClick * (BigInteger)MineralsRequired && Page.VespeneValue >= Page.NumberPerClick * VespRequired && Page.LarvaValue >= Page.NumberPerClick * LarvaRequired)
@@ -275,9 +334,12 @@ namespace IdleSwarm.Droid.Classes
                 Page.VespeneValue = (Page.VespeneValue - Page.NumberPerClick * VespRequired);
                 Page.LarvaValue = (Page.LarvaValue - Page.NumberPerClick * LarvaRequired);
                 Page.SupplyValue -= Page.NumberPerClick * SupplyRequired;
+                MineralsRequired += ((MineralsRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
+                VespRequired += ((VespRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
             }
         }
-        void BuyAllFunction()
+
+        private void BuyAllFunction()
         {
             Page.Free.WaitOne();
             if (Page.MineralValue >= (BigInteger)NumberCanAfford * (BigInteger)MineralsRequired && Page.VespeneValue >= (BigInteger)NumberCanAfford * (BigInteger)VespRequired && Page.LarvaValue >= (BigInteger)NumberCanAfford * (BigInteger)LarvaRequired)
@@ -288,8 +350,11 @@ namespace IdleSwarm.Droid.Classes
                 Page.VespeneValue = (Page.VespeneValue - numberCanAfford * (BigInteger)VespRequired);
                 Page.LarvaValue = (Page.LarvaValue - numberCanAfford * (BigInteger)LarvaRequired);
                 Page.SupplyValue -= numberCanAfford * SupplyRequired;
+                MineralsRequired += ((MineralsRequired * IncreasePerBuy * numberCanAfford)) / 100;
+                VespRequired += ((VespRequired * IncreasePerBuy * numberCanAfford)) / 100;
             }
         }
+
         public void DroneBuyAll()
         {
             Page.Free.WaitOne();
@@ -303,9 +368,12 @@ namespace IdleSwarm.Droid.Classes
                     Page.VespeneValue = (Page.VespeneValue - numberCanAfford * (BigInteger)VespRequired);
                     Page.LarvaValue = (Page.LarvaValue - numberCanAfford * (BigInteger)LarvaRequired);
                     Page.SupplyValue -= numberCanAfford * SupplyRequired;
+                    MineralsRequired += ((MineralsRequired * IncreasePerBuy * numberCanAfford)) / 100;
+                    VespRequired += ((VespRequired * IncreasePerBuy * numberCanAfford)) / 100;
                 }
             }
         }
+
         public void DroneBuySelection()
         {
             Page.Free.WaitOne();
@@ -318,9 +386,14 @@ namespace IdleSwarm.Droid.Classes
                     Page.VespeneValue = (Page.VespeneValue - Page.NumberPerClick * VespRequired);
                     Page.LarvaValue = (Page.LarvaValue - Page.NumberPerClick * LarvaRequired);
                     Page.SupplyValue -= Page.NumberPerClick * SupplyRequired;
+                    MineralsRequired += ((MineralsRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
+                    VespRequired += ((VespRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
+                    MineralsRequired += ((MineralsRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
+                    VespRequired += ((VespRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
                 }
             }
         }
+
         public void QueenBuyAll()
         {
             Page.Free.WaitOne();
@@ -337,6 +410,7 @@ namespace IdleSwarm.Droid.Classes
                 }
             }
         }
+
         public void QueenBuySelection()
         {
             Page.Free.WaitOne();
@@ -352,11 +426,7 @@ namespace IdleSwarm.Droid.Classes
                 }
             }
         }
-        void OnPropertyChanged(string propertyName)
-        {
-            var propertyChangedCallback = PropertyChanged;
-            propertyChangedCallback?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
         public void OverlordBuySelection()
         {
             Page.Free.WaitOne();
@@ -367,11 +437,13 @@ namespace IdleSwarm.Droid.Classes
                 Page.VespeneValue = (Page.VespeneValue - Page.NumberPerClick * VespRequired);
                 Page.LarvaValue = (Page.LarvaValue - Page.NumberPerClick * LarvaRequired);
                 Page.SupplyValue += Page.NumberPerClick * SupplyProvided;
+                MineralsRequired += ((MineralsRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
+                VespRequired += ((VespRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
             }
         }
+
         public void OverlordBuyAll()
         {
-
             Page.Free.WaitOne();
             if (Page.MineralValue >= (BigInteger)NumberCanAfford * (BigInteger)MineralsRequired && Page.VespeneValue >= (BigInteger)NumberCanAfford * (BigInteger)VespRequired && Page.LarvaValue >= (BigInteger)NumberCanAfford * (BigInteger)LarvaRequired)
             {
@@ -383,35 +455,78 @@ namespace IdleSwarm.Droid.Classes
                 Page.SupplyValue += numberCanAfford * SupplyProvided;
             }
         }
+
         public void ZerglingBuySelection()
         {
             Page.Free.WaitOne();
             if (Page.MineralValue >= (BigInteger)Page.NumberPerClick * (BigInteger)MineralsRequired && Page.VespeneValue >= Page.NumberPerClick * VespRequired && Page.LarvaValue >= Page.NumberPerClick * LarvaRequired)
             {
-                Count = (BigInteger.Parse(Count) + Page.NumberPerClick * 2).ToString();
+                if (Page.Things.UpgradeExists("More Effecient Zerglings"))
+                {
+                    Count = (BigInteger.Parse(Count) + Page.NumberPerClick * 2).ToString();
+                }
+                else
+                {
+                    Count = (BigInteger.Parse(Count) + Page.NumberPerClick * 3).ToString();
+                }
                 Page.MineralValue = Page.MineralValue - Page.NumberPerClick * MineralsRequired;
                 Page.VespeneValue = (Page.VespeneValue - Page.NumberPerClick * VespRequired);
                 Page.LarvaValue = (Page.LarvaValue - Page.NumberPerClick * LarvaRequired);
                 Page.SupplyValue -= Page.NumberPerClick * SupplyRequired;
+                MineralsRequired += ((MineralsRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
+                VespRequired += ((VespRequired * IncreasePerBuy * Page.NumberPerClick)) / 100;
             }
         }
+
         public void ZerglingBuyAll()
         {
-
             Page.Free.WaitOne();
             if (Page.MineralValue >= (BigInteger)NumberCanAfford * (BigInteger)MineralsRequired && Page.VespeneValue >= (BigInteger)NumberCanAfford * (BigInteger)VespRequired && Page.LarvaValue >= (BigInteger)NumberCanAfford * (BigInteger)LarvaRequired)
             {
                 BigInteger numberCanAfford = NumberCanAfford;
-                Count = (BigInteger.Parse(Count) + numberCanAfford * 2).ToString();
+                if (Page.Things.UpgradeExists("More Effecient Zerglings"))
+                {
+                    Count = (BigInteger.Parse(Count) + numberCanAfford * 2).ToString();
+                }
+                else
+                {
+                    Count = (BigInteger.Parse(Count) + numberCanAfford * 3).ToString();
+                }
                 Page.MineralValue = Page.MineralValue - numberCanAfford * (BigInteger)MineralsRequired;
                 Page.VespeneValue = (Page.VespeneValue - numberCanAfford * (BigInteger)VespRequired);
                 Page.LarvaValue = (Page.LarvaValue - numberCanAfford * (BigInteger)LarvaRequired);
                 Page.SupplyValue -= numberCanAfford * SupplyRequired;
             }
         }
+
         public string GetSaveString()
         {
             return Name + "|" + SupplyProvided + "|" + SupplyRequired + "|" + Description + "|" + IncomeSpeed + "|" + MineralsPerRound + "|" + VespPerRound + "|" + LarvaPerRound + "|" + MineralsRequired + "|" + VespRequired + "|" + LarvaRequired + "|" + ImagePath + "|" + Count + "|_";
+        }
+
+        public static BigInteger DefualtOtherRestrictions()
+        {
+            return 100000000;
+        }
+
+        public BigInteger QueenOtherRestrictions()
+        {
+            return (BigInteger.Parse(Page.Things.FindStructure("Hatchery").Count) + 1) - (BigInteger.Parse(Count));
+        }
+
+        public BigInteger DroneOtherRestrictions()
+        {
+            return (BigInteger.Parse(Page.Things.FindStructure("Hatchery").Count) * 30 + 30) - (BigInteger.Parse(Count));
+        }
+
+        public BigInteger ZerglingOtherRestrictions()
+        {
+            return (BigInteger.Parse(Page.Things.FindStructure("Spawning Pool").Count) * 1000) - (BigInteger.Parse(Count));
+        }
+
+        public BigInteger RoachOtherRestrictions()
+        {
+            return (BigInteger.Parse(Page.Things.FindStructure("Roach Warren").Count) * 500) - (BigInteger.Parse(Count));
         }
     }
 }

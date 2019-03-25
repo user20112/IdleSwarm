@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Threading;
+﻿using System.Numerics;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -8,7 +6,6 @@ namespace IdleSwarm.Droid.Classes
 {
     public interface DisplayRow
     {
-
         bool Button2IsVisible { get; set; }
         bool Button1IsVisible { get; set; }
         ICommand ButtonLeft { get; set; }
@@ -18,9 +15,10 @@ namespace IdleSwarm.Droid.Classes
         string LeftButtonText { get; set; }
         string RightButtonText { get; set; }
         string Description { get; set; }
-        int MineralsRequired { get; set; }
-        int VespRequired { get; set; }
+        BigInteger MineralsRequired { get; set; }
+        BigInteger VespRequired { get; set; }
         string ThirdDisplayLabel { get; set; }
+
         string GetSaveString();
     }
 }

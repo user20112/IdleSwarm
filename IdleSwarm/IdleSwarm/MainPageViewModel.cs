@@ -1,15 +1,11 @@
 ﻿using IdleSwarm.Classes;
 using IdleSwarm.Droid.Classes;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
 using System.Numerics;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -20,7 +16,9 @@ namespace IdleSwarm
     {
         public Things Things;
         public ManualResetEvent Free = new ManualResetEvent(false);
-        ImageSource _backgroundImage = "DarkerBackground.jpg";
+        private ImageSource _backgroundImage = "DarkerBackground.jpg";
+        public int DronesPerHatchery = 30;
+        public int ExtractorsPerHatchery = 2;
         public ImageSource BackgroundImage
         {
             get { return _backgroundImage; }
@@ -30,15 +28,16 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(BackgroundImage));
             }
         }
+
         public int Width;
         public ListView DisplayView { get; set; }
-        int Selected = 0;
         public int ImageHeight { get; set; }
         public ICommand UnitsCommand { get; set; }
         public ICommand StructuresCommand { get; set; }
         public ICommand UpgradesCommand { get; set; }
         public bool Running = true;
-        ImageSource _mineralImage = "MineralImage.jpg";
+        private ImageSource _mineralImage = "MineralImage.jpg";
+
         public ImageSource MineralImage
         {
             get { return _mineralImage; }
@@ -48,7 +47,9 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(MineralImage));
             }
         }
-        ImageSource _vespImage = "VespeneGas.gif";
+
+        private ImageSource _vespImage = "VespeneGas.gif";
+
         public ImageSource VespImage
         {
             get { return _vespImage; }
@@ -58,7 +59,9 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(VespImage));
             }
         }
-        ImageSource _larvaImage = "Larva.png";
+
+        private ImageSource _larvaImage = "Larva.png";
+
         public ImageSource LarvaImage
         {
             get { return _larvaImage; }
@@ -68,7 +71,9 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(LarvaImage));
             }
         }
-        ImageSource _supplyImage = "OverLord.PNG";
+
+        private ImageSource _supplyImage = "OverLord.PNG";
+
         public ImageSource SupplyImage
         {
             get { return _supplyImage; }
@@ -78,7 +83,9 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(SupplyImage));
             }
         }
-        string _mineralCount = "5000";
+
+        private string _mineralCount = "0";
+
         public string MineralCount
         {
             get { return _mineralCount; }
@@ -89,6 +96,7 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(MineralCount));
             }
         }
+
         public BigInteger MineralValue
         {
             get
@@ -100,7 +108,9 @@ namespace IdleSwarm
                 MineralCount = value.ToString();
             }
         }
-        string _vespeneCount = "0";
+
+        private string _vespeneCount = "0";
+
         public string VespeneCount
         {
             get { return _vespeneCount; }
@@ -111,6 +121,7 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(VespeneCount));
             }
         }
+
         public BigInteger VespeneValue
         {
             get
@@ -122,7 +133,9 @@ namespace IdleSwarm
                 VespeneCount = value.ToString();
             }
         }
-        string _larvaCount = "10";
+
+        private string _larvaCount = "10";
+
         public string LarvaCount
         {
             get { return _larvaCount; }
@@ -133,7 +146,9 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(LarvaCount));
             }
         }
-        string _supplyCount = "50";
+
+        private string _supplyCount = "50";
+
         public string SupplyCount
         {
             get { return _supplyCount; }
@@ -143,6 +158,7 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(SupplyCount));
             }
         }
+
         public BigInteger SupplyValue
         {
             get
@@ -154,6 +170,7 @@ namespace IdleSwarm
                 SupplyCount = value.ToString();
             }
         }
+
         public BigInteger LarvaValue
         {
             get
@@ -165,7 +182,9 @@ namespace IdleSwarm
                 LarvaCount = value.ToString();
             }
         }
-        int _numberPerClick = 1;
+
+        private int _numberPerClick = 1;
+
         public int NumberPerClick
         {
             get { return _numberPerClick; }
@@ -175,11 +194,15 @@ namespace IdleSwarm
                 OnPropertyChanged(nameof(NumberPerClick));
             }
         }
+
         public ObservableCollection<UnitRow> Units { get; set; }
         public ObservableCollection<StructureRow> Structures { get; set; }
         public ObservableCollection<UpgradeRow> Upgrades { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
-        Thread SaveThread;
+
+        private Thread SaveThread;
+
         public MainPageViewModel(ListView displayView)
         {
             Things = new Things(this);
@@ -207,7 +230,8 @@ namespace IdleSwarm
             Free.Set();
             RecalculateCanAfford();
         }
-        void Load(string filepath)
+
+        private void Load(string filepath)
         {
             // | per feild _ per variable
             //UpgradeString
@@ -252,27 +276,23 @@ namespace IdleSwarm
                             {
                                 Units.Add(new UnitRow(this, CurrentData));
                                 NumberSeenAlready--;
-
                             }
                             break;
 
                         case 5:
                             if (CurrentData == "")
                             {
-
                             }
                             else
                             {
                                 Structures.Add(new StructureRow(this, CurrentData));
                                 NumberSeenAlready--;
-
                             }
                             break;
 
                         case 6:
                             if (CurrentData == "")
                             {
-
                             }
                             else
                             {
@@ -304,7 +324,7 @@ namespace IdleSwarm
                  "AggressiveMutation.png",
                  10000000, 20000000, 5000,
                  "Using 5000 drones as testing biomass and some Minerals/vesp as Catalysts We can Increase adrenaline produced creating more agressive zerglings (+50 Minerals per second) requires 3 chambers",
-                 new Command(UpgradeFunctions.AgressiveMutation),
+                 new Command(UpgradeFunctions.AggressiveMutation),
                  3));
             Things.ZerglingUpgrades.Add(
                  new UpgradeRow(this,
@@ -367,9 +387,21 @@ namespace IdleSwarm
                  new Command(UpgradeFunctions.ExplosiveSpikes),
                  4));
             //InfestedTerranUpgradesz
+            if (!Things.UpgradeExists("Hive"))
+            {
+                DronesPerHatchery += 15;
+                DronesPerHatchery += 1;
+            }
+
+            if (!Things.UpgradeExists("Lairs"))
+            {
+                DronesPerHatchery += 15;
+                DronesPerHatchery += 1;
+            }
 
         }
-        void SaveThreadFunction()
+
+        private void SaveThreadFunction()
         {
             Thread.Sleep(5000);
             while (Running)
@@ -379,7 +411,8 @@ namespace IdleSwarm
                 Thread.Sleep(5000);
             }
         }
-        void SaveData(string filepath)
+
+        private void SaveData(string filepath)
         {
             // | per feild _ per variable
             //UpgradeString
@@ -411,26 +444,25 @@ namespace IdleSwarm
                 File.Delete(filepath);
             File.WriteAllText(filepath, text);
         }
+
         ~MainPageViewModel()
         {
             Running = false;
         }
-        void RecalculateCanAfford()
+
+        private void RecalculateCanAfford()
         {
             if (Free.WaitOne(0))
             {
-
                 for (int Current = 0; Current < Units.Count; Current++)
                 {
                     if (Current == 5)
                     {
-
                     }
                     else
                     {
                         if (Units[Current].Name == "Drone")
                         {
-
                             BigInteger x = 10000000000;
                             if (Units[Current].MineralsRequired != 0)
                                 x = (BigInteger)(MineralValue / Units[Current].MineralsRequired);
@@ -450,43 +482,21 @@ namespace IdleSwarm
                         }
                         else
                         {
-                            if (Units[Current].Name == "Queen")
-                            {
-
-                                BigInteger x = 10000000000;
-                                if (Units[Current].MineralsRequired != 0)
-                                    x = (BigInteger)(MineralValue / Units[Current].MineralsRequired);
-                                if (Units[Current].LarvaRequired != 0)
-                                    if (x > (BigInteger)(LarvaValue / Units[Current].LarvaRequired))
-                                        x = (BigInteger)(LarvaValue / Units[Current].LarvaRequired);
-                                if (Units[Current].VespRequired != 0)
-                                    if (x > (BigInteger)(VespeneValue / Units[Current].VespRequired))
-                                        x = (BigInteger)(VespeneValue / Units[Current].VespRequired);
-                                if (Units[Current].SupplyRequired != 0)
-                                    if (x > (BigInteger)((SupplyValue) / Units[Current].SupplyRequired))
-                                        x = (BigInteger)((SupplyValue) / Units[Current].SupplyRequired);
-                                if (x > (BigInteger.Parse(Things.FindStructure("Hatchery").Count) + 1) - (BigInteger.Parse(Units[Current].Count)))
-                                    x = (BigInteger.Parse(Things.FindStructure("Hatchery").Count) + 1) - (BigInteger.Parse(Units[Current].Count));
-
-                                Units[Current].NumberCanAfford = x;
-                            }
-                            else
-                            {
-
-                                BigInteger x = 10000000000;
-                                if (Units[Current].MineralsRequired != 0)
-                                    x = (BigInteger)(MineralValue / Units[Current].MineralsRequired);
-                                if (Units[Current].LarvaRequired != 0)
-                                    if (x > (BigInteger)(LarvaValue / Units[Current].LarvaRequired))
-                                        x = (BigInteger)(LarvaValue / Units[Current].LarvaRequired);
-                                if (Units[Current].VespRequired != 0)
-                                    if (x > (BigInteger)(VespeneValue / Units[Current].VespRequired))
-                                        x = (BigInteger)(VespeneValue / Units[Current].VespRequired);
-                                if (Units[Current].SupplyRequired != 0)
-                                    if (x > (BigInteger)((SupplyValue) / Units[Current].SupplyRequired))
-                                        x = (BigInteger)((SupplyValue) / Units[Current].SupplyRequired);
-                                Units[Current].NumberCanAfford = x;
-                            }
+                            BigInteger x = 10000000000;
+                            if (Units[Current].MineralsRequired != 0)
+                                x = (BigInteger)(MineralValue / Units[Current].MineralsRequired);
+                            if (Units[Current].LarvaRequired != 0)
+                                if (x > (BigInteger)(LarvaValue / Units[Current].LarvaRequired))
+                                    x = (BigInteger)(LarvaValue / Units[Current].LarvaRequired);
+                            if (Units[Current].VespRequired != 0)
+                                if (x > (BigInteger)(VespeneValue / Units[Current].VespRequired))
+                                    x = (BigInteger)(VespeneValue / Units[Current].VespRequired);
+                            if (Units[Current].SupplyRequired != 0)
+                                if (x > (BigInteger)((SupplyValue) / Units[Current].SupplyRequired))
+                                    x = (BigInteger)((SupplyValue) / Units[Current].SupplyRequired);
+                            if (x > Units[Current].OtherRestrictions())
+                                x = Units[Current].OtherRestrictions();
+                            Units[Current].NumberCanAfford = x;
                         }
                     }
                 }
@@ -510,7 +520,6 @@ namespace IdleSwarm
                         else
                         {
                             Structures[Current].Button2IsVisible = false;
-
                         }
                     }
                     else
@@ -563,9 +572,9 @@ namespace IdleSwarm
                     Upgrades[Current].CanAfford = x;
                 }
             }
-
         }
-        void GenerateStructures()
+
+        private void GenerateStructures()
         {
             Structures = new ObservableCollection<StructureRow>();
             Structures.Add(Things.Extractor());
@@ -575,14 +584,16 @@ namespace IdleSwarm
             Structures.Add(Things.RoachWarren());
             Structures.Add(Things.InfestedBarracks());
         }
-        void GenerateUnits()
+
+        private void GenerateUnits()
         {
             Units = new ObservableCollection<UnitRow>();
             Units.Add(Things.GetDrone());
             Units.Add(Things.GetQueen());
             Units.Add(Things.GetOverlord());
         }
-        void GenerateUpgrades()
+
+        private void GenerateUpgrades()
         {
             UpgradeFunctions UpgradeFunctions = new UpgradeFunctions(this);
             //normal upgrades
@@ -595,38 +606,32 @@ namespace IdleSwarm
             Upgrades.Add(Things.GetUpgradeFromString("Hives"));
             Upgrades.Add(Things.GetUpgradeFromString("Energized Injection"));
             Upgrades.Add(Things.GetUpgradeFromString("Quicker Gather"));
+            Upgrades.Add(Things.GetUpgradeFromString("Lairs"));
             Upgrades.Add(Things.GetUpgradeFromString("Hives"));
-            Upgrades.Add(Things.GetUpgradeFromString("Hives"));
+            Upgrades.Add(Things.GetUpgradeFromString("Larger Tanks"));
+            Upgrades.Add(Things.GetUpgradeFromString("Faster Extractors"));
             Things.AddSpecialUpgrades();
-
         }
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             var propertyChangedCallback = PropertyChanged;
             propertyChangedCallback?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        void StructureOnClick()
+        private void StructureOnClick()
         {
             DisplayView.ItemsSource = Structures;
-            Selected = 1;
         }
 
-        void UnitOnClick()
+        private void UnitOnClick()
         {
             DisplayView.ItemsSource = Units;
-            Selected = 0;
         }
 
-        void UpgradeOnClick()
+        private void UpgradeOnClick()
         {
             DisplayView.ItemsSource = Upgrades;
-            Selected = 2;
         }
-
-
-
     }
-
 }
-
