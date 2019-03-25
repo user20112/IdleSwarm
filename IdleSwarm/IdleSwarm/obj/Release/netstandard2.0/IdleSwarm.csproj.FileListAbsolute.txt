@@ -1,0 +1,11 @@
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\bin\Release\netstandard2.0\IdleSwarm.deps.json
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\bin\Release\netstandard2.0\IdleSwarm.dll
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\bin\Release\netstandard2.0\IdleSwarm.pdb
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\App.xaml.g.cs
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\MainPage.xaml.g.cs
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.csproj.CoreCompileInputs.cache
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.AssemblyInfoInputs.cache
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.AssemblyInfo.cs
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\XamlC.stamp
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.dll
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.pdb
