@@ -11,7 +11,7 @@ namespace IdleSwarm
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MasterDetailMainPage();
         }
 
         protected override void OnStart()

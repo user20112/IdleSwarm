@@ -4384,8 +4384,8 @@ namespace IdleSwarm.Droid
 			// aapt resource value: 0x7F090055
 			public const int avd_show_password = 2131296341;
 			
-			// aapt resource value: 0x7F010049
-			public const int Background = 2130772041;
+			// aapt resource value: 0x7F010050
+			public const int Background = 2130772048;
 			
 			// aapt resource value: 0x7F010003
 			public const int Baneling = 2130771971;
@@ -4393,8 +4393,11 @@ namespace IdleSwarm.Droid
 			// aapt resource value: 0x7F010004
 			public const int CentrifugalHooks = 2130771972;
 			
-			// aapt resource value: 0x7F010050
-			public const int DarkerBackground = 2130772048;
+			// aapt resource value: 0x7F010005
+			public const int CreepTumor = 2130771973;
+			
+			// aapt resource value: 0x7F010051
+			public const int DarkerBackground = 2130772049;
 			
 			// aapt resource value: 0x7F090056
 			public const int design_bottom_navigation_item_background = 2131296342;
@@ -4414,44 +4417,44 @@ namespace IdleSwarm.Droid
 			// aapt resource value: 0x7F09005B
 			public const int design_snackbar_background = 2131296347;
 			
-			// aapt resource value: 0x7F010005
-			public const int Drone = 2130771973;
-			
 			// aapt resource value: 0x7F010006
-			public const int EvolutionChamber = 2130771974;
+			public const int Drone = 2130771974;
 			
 			// aapt resource value: 0x7F010007
-			public const int ExplosiveSpikes = 2130771975;
+			public const int EvolutionChamber = 2130771975;
 			
 			// aapt resource value: 0x7F010008
-			public const int Extractor = 2130771976;
+			public const int ExplosiveSpikes = 2130771976;
 			
 			// aapt resource value: 0x7F010009
-			public const int FasterExtractors = 2130771977;
+			public const int Extractor = 2130771977;
 			
 			// aapt resource value: 0x7F010010
-			public const int Frenzy = 2130771984;
+			public const int FasterExtractors = 2130771984;
 			
 			// aapt resource value: 0x7F010011
-			public const int GatherUpgrade = 2130771985;
+			public const int Frenzy = 2130771985;
 			
 			// aapt resource value: 0x7F010012
-			public const int GreaterSpire = 2130771986;
+			public const int GatherUpgrade = 2130771986;
 			
 			// aapt resource value: 0x7F010013
-			public const int GroovedSpines = 2130771987;
+			public const int GreaterSpire = 2130771987;
 			
 			// aapt resource value: 0x7F010014
-			public const int Hatchery = 2130771988;
+			public const int GroovedSpines = 2130771988;
 			
 			// aapt resource value: 0x7F010015
-			public const int HiveUpgrade = 2130771989;
+			public const int Hatchery = 2130771989;
 			
 			// aapt resource value: 0x7F010016
-			public const int Hydralisk = 2130771990;
+			public const int HiveUpgrade = 2130771990;
 			
 			// aapt resource value: 0x7F010017
-			public const int icon = 2130771991;
+			public const int Hydralisk = 2130771991;
+			
+			// aapt resource value: 0x7F010018
+			public const int icon = 2130771992;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -4984,35 +4987,35 @@ namespace IdleSwarm.Droid
 			// aapt resource value: 0x7F090104
 			public const int ic_vol_type_tv_light = 2131296516;
 			
-			// aapt resource value: 0x7F010018
-			public const int InfestationPit = 2130771992;
-			
 			// aapt resource value: 0x7F010019
-			public const int InfestedBarracks = 2130771993;
+			public const int InfestationPit = 2130771993;
 			
 			// aapt resource value: 0x7F010020
-			public const int InfestedMarine = 2130772000;
+			public const int InfestedBarracks = 2130772000;
 			
 			// aapt resource value: 0x7F010021
-			public const int LairUpgrade = 2130772001;
+			public const int InfestedMarine = 2130772001;
 			
 			// aapt resource value: 0x7F010022
-			public const int Larva = 2130772002;
+			public const int LairUpgrade = 2130772002;
 			
 			// aapt resource value: 0x7F010023
-			public const int LarvaUpgrade = 2130772003;
-			
-			// aapt resource value: 0x7F010051
-			public const int LighterBackground = 2130772049;
+			public const int Larva = 2130772003;
 			
 			// aapt resource value: 0x7F010024
-			public const int MetabolicBoost = 2130772004;
+			public const int LarvaUpgrade = 2130772004;
+			
+			// aapt resource value: 0x7F010052
+			public const int LighterBackground = 2130772050;
 			
 			// aapt resource value: 0x7F010025
-			public const int MineralImage = 2130772005;
+			public const int MetabolicBoost = 2130772005;
 			
 			// aapt resource value: 0x7F010026
-			public const int MorePurpleRoaches = 2130772006;
+			public const int MineralImage = 2130772006;
+			
+			// aapt resource value: 0x7F010027
+			public const int MorePurpleRoaches = 2130772007;
 			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
@@ -5074,11 +5077,11 @@ namespace IdleSwarm.Droid
 			// aapt resource value: 0x7F090118
 			public const int mr_vol_type_audiotrack_light = 2131296536;
 			
-			// aapt resource value: 0x7F010027
-			public const int MuscularAugments = 2130772007;
-			
 			// aapt resource value: 0x7F010028
-			public const int Mutalisk = 2130772008;
+			public const int MuscularAugments = 2130772008;
+			
+			// aapt resource value: 0x7F010029
+			public const int Mutalisk = 2130772009;
 			
 			// aapt resource value: 0x7F09005C
 			public const int navigation_empty_icon = 2131296348;
@@ -5119,50 +5122,50 @@ namespace IdleSwarm.Droid
 			// aapt resource value: 0x7F09000C
 			public const int notify_panel_notification_icon_bg = 2131296268;
 			
-			// aapt resource value: 0x7F010029
-			public const int Nydus = 2130772009;
-			
 			// aapt resource value: 0x7F010030
-			public const int OverLord = 2130772016;
+			public const int Nydus = 2130772016;
 			
 			// aapt resource value: 0x7F010031
-			public const int OverLordUpgrade = 2130772017;
+			public const int OverLord = 2130772017;
 			
 			// aapt resource value: 0x7F010032
-			public const int PurplerRoaches = 2130772018;
+			public const int OverLordUpgrade = 2130772018;
 			
 			// aapt resource value: 0x7F010033
-			public const int Queen = 2130772019;
+			public const int PurplerRoaches = 2130772019;
 			
 			// aapt resource value: 0x7F010034
-			public const int RaptorLingUpgrade = 2130772020;
+			public const int Queen = 2130772020;
 			
 			// aapt resource value: 0x7F010035
-			public const int Roach = 2130772021;
+			public const int RaptorLingUpgrade = 2130772021;
 			
 			// aapt resource value: 0x7F010036
-			public const int RoachWarren = 2130772022;
+			public const int Roach = 2130772022;
 			
 			// aapt resource value: 0x7F010037
-			public const int SpawningPool = 2130772023;
+			public const int RoachWarren = 2130772023;
 			
 			// aapt resource value: 0x7F010038
-			public const int Spire = 2130772024;
+			public const int SpawningPool = 2130772024;
 			
 			// aapt resource value: 0x7F010039
-			public const int StrikeCannonds = 2130772025;
+			public const int Spire = 2130772025;
 			
 			// aapt resource value: 0x7F010040
-			public const int StrongerMandibles = 2130772032;
+			public const int StrikeCannonds = 2130772032;
 			
 			// aapt resource value: 0x7F010041
-			public const int StrongerSpikes = 2130772033;
+			public const int StrongerMandibles = 2130772033;
 			
 			// aapt resource value: 0x7F010042
-			public const int StrongSpikes = 2130772034;
+			public const int StrongerSpikes = 2130772034;
 			
 			// aapt resource value: 0x7F010043
-			public const int SuperSonicDrones = 2130772035;
+			public const int StrongSpikes = 2130772035;
+			
+			// aapt resource value: 0x7F010044
+			public const int SuperSonicDrones = 2130772036;
 			
 			// aapt resource value: 0x7F090069
 			public const int tooltip_frame_dark = 2131296361;
@@ -5170,20 +5173,20 @@ namespace IdleSwarm.Droid
 			// aapt resource value: 0x7F09006A
 			public const int tooltip_frame_light = 2131296362;
 			
-			// aapt resource value: 0x7F010044
-			public const int TunnlingClaws = 2130772036;
-			
 			// aapt resource value: 0x7F010045
-			public const int VespeneGas = 2130772037;
+			public const int TunnlingClaws = 2130772037;
 			
 			// aapt resource value: 0x7F010046
-			public const int VespeneHarvestors = 2130772038;
+			public const int VespeneGas = 2130772038;
 			
 			// aapt resource value: 0x7F010047
-			public const int Zergling = 2130772039;
+			public const int VespeneHarvestors = 2130772039;
 			
 			// aapt resource value: 0x7F010048
-			public const int ZerglingUpgrade1 = 2130772040;
+			public const int Zergling = 2130772040;
+			
+			// aapt resource value: 0x7F010049
+			public const int ZerglingUpgrade1 = 2130772041;
 			
 			static Drawable()
 			{

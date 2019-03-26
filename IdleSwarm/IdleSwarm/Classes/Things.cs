@@ -6,13 +6,13 @@ namespace IdleSwarm.Classes
 {
     public class Things
     {
-        private MainPageViewModel page;
+        private HiveViewModel page;
         private UpgradeFunctions UpgradeFunctions;
         public List<UpgradeRow> ZerglingUpgrades = new List<UpgradeRow>();
         public List<UpgradeRow> RoachUpgrades = new List<UpgradeRow>();
         public List<UpgradeRow> InfestedTerranUpgrades = new List<UpgradeRow>();
 
-        public Things(MainPageViewModel Page)
+        public Things(HiveViewModel Page)
         {
             page = Page;
             UpgradeFunctions = new UpgradeFunctions(page);
@@ -83,6 +83,13 @@ namespace IdleSwarm.Classes
             value.OverWriteIncomeFunction(new Command(value.ExtractorIncomeFunction));
             value.ButtonRight = new Command(value.ExtractorBuyAll);
             value.ButtonLeft = new Command(value.ExtractorBuySelection);
+            return value;
+        }
+
+        public StructureRow CreepTumor()
+        {
+            StructureRow value = new StructureRow(page, "CreepTumor", "CreepTumor.PNG", 0, 0, 0,20000,2000,1, 10000, "Increases All army Mineral Generation rate by 1%. Cost increases by 10 times each time.");
+            value.IncreasePerBuy = 9900;
             return value;
         }
 

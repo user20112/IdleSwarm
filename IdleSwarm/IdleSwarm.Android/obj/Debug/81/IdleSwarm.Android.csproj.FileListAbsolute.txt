@@ -1,11 +1,11 @@
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\IdleSwarm.Android.nuget.stamp
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\bin\Debug\IdleSwarm.Android.dll
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\bin\Debug\IdleSwarm.Android.pdb
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\bin\Debug\com.companyname.IdleSwarm.apk
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\bin\Debug\com.companyname.IdleSwarm-Signed.apk
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\bin\Debug\IdleSwarm.dll
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\bin\Debug\IdleSwarm.pdb
-G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
-G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\IdleSwarm.Android.nuget.stamp
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\IdleSwarm.Android.csprojAssemblyReference.cache
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\libraryimports.cache.stamp
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\res.flag
@@ -81,6 +81,7 @@ G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\res\drawable-xxhdpi
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\res\drawable-xxhdpi\darkerbackground.jpg
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\res\drawable\fasterextractors.png
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\res\drawable\vespeneharvestors.png
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\res\drawable\creeptumor.png
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\R.cs.flag
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\R.txt
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Debug\81\uploadflags.txt

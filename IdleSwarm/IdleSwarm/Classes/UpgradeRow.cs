@@ -109,7 +109,7 @@ namespace IdleSwarm.Droid.Classes
         private string ImagePath;
         //Inotify Interface Section
 
-        private MainPageViewModel Page;
+        private HiveViewModel Page;
         private string _count = "0";
 
         public string Count
@@ -141,7 +141,7 @@ namespace IdleSwarm.Droid.Classes
             }
         }
 
-        public UpgradeRow(MainPageViewModel Mainpage, string name, string imagepath, int mineralCost, int vespCost, int DroneCost, string description, Command UpgradeClick, int evolutionChambersRequired)
+        public UpgradeRow(HiveViewModel Mainpage, string name, string imagepath, int mineralCost, int vespCost, int DroneCost, string description, Command UpgradeClick, int evolutionChambersRequired)
         {
             EvolutionChambersRequired = evolutionChambersRequired;
             Description = description;

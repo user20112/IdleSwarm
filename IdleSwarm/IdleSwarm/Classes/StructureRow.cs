@@ -158,7 +158,7 @@ namespace IdleSwarm.Droid.Classes
             }
         }
 
-        private MainPageViewModel Page;
+        private HiveViewModel Page;
         public int DronesPerRound = 1;
         private string ImagePath;
         public int IncreasePerBuy = 0;
@@ -171,7 +171,7 @@ namespace IdleSwarm.Droid.Classes
 
         }
 
-        public StructureRow(MainPageViewModel Mainpage, string name, string imagepath, int mineralPerRound, int vespPerRound, int larvaPerRound, int mineralCost, int vespCost, int DroneCost, int incomeSpeed, string description)
+        public StructureRow(HiveViewModel Mainpage, string name, string imagepath, int mineralPerRound, int vespPerRound, int larvaPerRound, int mineralCost, int vespCost, int DroneCost, int incomeSpeed, string description)
         {
             Description = description;
             IncomeSpeed = incomeSpeed;
@@ -193,7 +193,7 @@ namespace IdleSwarm.Droid.Classes
             IncomeThread.Start();
         }
 
-        public StructureRow(MainPageViewModel MainPage, string name)
+        public StructureRow(HiveViewModel MainPage, string name)
         {
             Page = MainPage;
             // | per feild _ per variable
@@ -330,11 +330,24 @@ namespace IdleSwarm.Droid.Classes
                                                 }
                                                 else
                                                 {
-                                                    ButtonLeft = new Command(BuySelectionFunction);
-                                                    ButtonRight = new Command(BuyAllFunction);
-                                                    incomeFunction = new Command(DefualtIncomeFunction);
-                                                    IncomeThread = new Thread(new ThreadStart(() => incomeFunction.Execute(null)));
-                                                    IncomeThread.Start();
+
+                                                    if (Name == "CreepTumor")
+                                                    {
+                                                        ButtonLeft = new Command(BuySelectionFunction);
+                                                        ButtonRight = new Command(BuyAllFunction);
+                                                        incomeFunction = new Command(DefualtIncomeFunction);
+                                                        IncomeThread = new Thread(new ThreadStart(() => incomeFunction.Execute(null)));
+                                                        IncomeThread.Start();
+                                                    }
+                                                    else
+                                                    {
+                                                        ButtonLeft = new Command(BuySelectionFunction);
+                                                        ButtonRight = new Command(BuyAllFunction);
+                                                        incomeFunction = new Command(DefualtIncomeFunction);
+                                                        IncomeThread = new Thread(new ThreadStart(() => incomeFunction.Execute(null)));
+                                                        IncomeThread.Start();
+
+                                                    }
                                                 }
                                             }
                                         }

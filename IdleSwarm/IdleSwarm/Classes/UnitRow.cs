@@ -169,12 +169,12 @@ namespace IdleSwarm.Droid.Classes
             propertyChangedCallback?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private MainPageViewModel Page;
+        private HiveViewModel Page;
         private string ImagePath;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public UnitRow(MainPageViewModel Mainpage, string name, string imagepath, int mineralPerRound, int vespPerRound, int larvaPerRound, int mineralCost, int vespCost, int larvaCost, int incomeSpeed, string description, int SupplyRequirement, int supplyProvided)
+        public UnitRow(HiveViewModel Mainpage, string name, string imagepath, int mineralPerRound, int vespPerRound, int larvaPerRound, int mineralCost, int vespCost, int larvaCost, int incomeSpeed, string description, int SupplyRequirement, int supplyProvided)
         {
             SupplyProvided = supplyProvided;
             SupplyRequired = SupplyRequirement;
@@ -200,7 +200,7 @@ namespace IdleSwarm.Droid.Classes
         {
             IncomeThread.Abort();
         }
-        public UnitRow(MainPageViewModel mainpage, string name)
+        public UnitRow(HiveViewModel mainpage, string name)
         {
             Page = mainpage;
             // | per feild _ per variable
@@ -318,7 +318,7 @@ namespace IdleSwarm.Droid.Classes
             while (Page.Running)
             {
                 Thread.Sleep(IncomeSpeed);
-                Page.MineralValue = Page.MineralValue + MineralsPerRound * BigInteger.Parse(Count);
+                Page.MineralValue = ((Page.MineralValue + MineralsPerRound * BigInteger.Parse(Count)) *(100+BigInteger.Parse(Page.Things.FindStructure("CreepTumor").Count)) / 100);
                 Page.VespeneValue = (Page.VespeneValue + VespPerRound * BigInteger.Parse(Count));
                 Page.LarvaValue = (Page.LarvaValue + LarvaPerRound * BigInteger.Parse(Count));
             }

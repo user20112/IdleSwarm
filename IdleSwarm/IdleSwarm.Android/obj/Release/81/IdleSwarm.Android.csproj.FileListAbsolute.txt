@@ -150,6 +150,7 @@ G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Release\81\android\assets\Sy
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Release\81\android\assets\Xamarin.Forms.Core.pdb
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Release\81\android\assets\Xamarin.Forms.Platform.Android.pdb
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Release\81\android\assets\Xamarin.Forms.Xaml.pdb
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Release\81\res\drawable\creeptumor.png
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\bin\Release\IdleSwarm.Android.dll
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Release\81\linksrc\IdleSwarm.Android.dll.mdb
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm.Android\obj\Release\81\linksrc\Xamarin.Essentials.dll.mdb

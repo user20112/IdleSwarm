@@ -2,9 +2,9 @@
 {
     public class UpgradeFunctions
     {
-        private MainPageViewModel Page;
+        private HiveViewModel Page;
 
-        public UpgradeFunctions(MainPageViewModel MainPage)
+        public UpgradeFunctions(HiveViewModel MainPage)
         {
             Page = MainPage;
         }

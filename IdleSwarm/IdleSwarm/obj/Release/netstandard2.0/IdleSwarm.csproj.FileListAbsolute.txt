@@ -2,10 +2,16 @@ G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\bin\Release\netstandard2.0\IdleSwarm.dep
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\bin\Release\netstandard2.0\IdleSwarm.dll
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\bin\Release\netstandard2.0\IdleSwarm.pdb
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\App.xaml.g.cs
-G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\MainPage.xaml.g.cs
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.csproj.CoreCompileInputs.cache
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.AssemblyInfoInputs.cache
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.AssemblyInfo.cs
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\XamlC.stamp
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.dll
 G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.pdb
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\IdleSwarm.csprojAssemblyReference.cache
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\Pages\GroupChatPage.xaml.g.cs
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\Pages\HivePage.xaml.g.cs
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\Pages\InfestPage.xaml.g.cs
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\Pages\MasterDetailMainPage.xaml.g.cs
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\Pages\MasterDetailMainPageMaster.xaml.g.cs
+G:\Github\IdleSwarm\IdleSwarm\IdleSwarm\obj\Release\netstandard2.0\Pages\ResetPage.xaml.g.cs
