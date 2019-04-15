@@ -127,13 +127,15 @@
         public void Lairs()
         {
             Page.DronesPerHatchery += 15;
-            Page.DronesPerHatchery += 1;
+            Page.ExtractorsPerHatchery += 1;
+            AfterUpgrade("Lairs");
         }
 
         public void Hives()
         {
-            Page.Structures[2].DronesPerRound += Page.Structures[2].DronesPerRound;
-            Page.Structures[2].Description = "Creates " + Page.Structures[2].DronesPerRound + " Drone Per Second";
+
+            Page.DronesPerHatchery += 15;
+            Page.ExtractorsPerHatchery += 1;
             AfterUpgrade("Hives");
         }
 
