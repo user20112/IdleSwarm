@@ -1118,21 +1118,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\devlin\\.nuget\\packages\\": {}
+    "C:\\Users\\devlin\\.nuget\\packages\\": {},
+    "C:\\ProgramData\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm.Android\\IdleSwarm.Android.csproj",
+      "projectUniqueName": "D:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm.Android\\IdleSwarm.Android.csproj",
       "projectName": "IdleSwarm.Android",
-      "projectPath": "G:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm.Android\\IdleSwarm.Android.csproj",
+      "projectPath": "D:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm.Android\\IdleSwarm.Android.csproj",
       "packagesPath": "C:\\Users\\devlin\\.nuget\\packages\\",
-      "outputPath": "G:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm.Android\\obj\\",
+      "outputPath": "D:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\ProgramData\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\devlin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "monoandroid81"
@@ -1144,8 +1149,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "G:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm\\IdleSwarm.csproj": {
-              "projectPath": "G:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm\\IdleSwarm.csproj"
+            "D:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm\\IdleSwarm.csproj": {
+              "projectPath": "D:\\Github\\IdleSwarm\\IdleSwarm\\IdleSwarm\\IdleSwarm.csproj"
             }
           }
         }
