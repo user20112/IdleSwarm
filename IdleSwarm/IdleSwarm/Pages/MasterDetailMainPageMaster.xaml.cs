@@ -32,9 +32,9 @@ namespace IdleSwarm
                     new DrawerPageClass(){PageTitle="Units",PageID=1 },
                     new DrawerPageClass(){PageTitle="Structures",PageID=2 },
                     new DrawerPageClass(){PageTitle="Upgrades",PageID=3 },
-                   // new DrawerPageClass(){PageTitle="Infestation Panel",PageID=4 },
-                   // new DrawerPageClass(){PageTitle="Group Chat",PageID=5 }
-                   new DrawerPageClass(){PageTitle="Reset Progress",PageID=6}
+                    new DrawerPageClass(){PageTitle="Infestation Panel",PageID=4 },
+                    new DrawerPageClass(){PageTitle="Group Chat",PageID=5 },
+                    new DrawerPageClass(){PageTitle="Reset Progress",PageID=6}
                 });
             }
 

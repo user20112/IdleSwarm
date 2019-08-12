@@ -10,6 +10,8 @@ namespace IdleSwarm
     {
         bool OnHome = true;
         public static MainPage mainpage = null;
+        public static GroupChatPage GroupChat = null;
+        public static InfestPage InfestPage = null;
         public MasterDetailMainPage()
         {
             InitializeComponent();
@@ -58,12 +60,15 @@ namespace IdleSwarm
                     OnHome = true;
                     break;
                 case 4:
-
-
+                    Detail.Navigation.PushAsync(InfestPage ?? new InfestPage());
+                    MasterPage.ListView.SelectedItem = null;
+                    IsPresented = false;
                     OnHome = false;
                     break;
                 case 5:
-
+                    Detail.Navigation.PushAsync(GroupChat ?? new GroupChatPage());
+                    MasterPage.ListView.SelectedItem = null;
+                    IsPresented = false;
                     OnHome = false;
                     break;
                 case 6:

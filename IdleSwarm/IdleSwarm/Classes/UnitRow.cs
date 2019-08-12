@@ -276,6 +276,7 @@ namespace IdleSwarm.Droid.Classes
                                 case "Zergling":
                                     ButtonLeft = new Command(ZerglingBuySelection);
                                     ButtonRight = new Command(ZerglingBuyAll);
+                                    OtherRestrictions = QueenOtherRestrictions;
                                     break;
 
                                 case "Roach":

@@ -44,7 +44,7 @@ namespace IdleSwarm.Classes
         public UnitRow GetRoach()
         {
             UnitRow value = new UnitRow(page, "Roach", "Roach.PNG", 4, 0, 0, 75, 0, 1, 2000, "Steals another hives minerals from their zerglings. Brings home 4 minerals every other second.", 3, 0);
-            value.OtherRestrictions = value.ZerglingOtherRestrictions;
+            value.OtherRestrictions = value.RoachOtherRestrictions;
             return value;
         }
 
@@ -116,6 +116,7 @@ namespace IdleSwarm.Classes
             value.Button1IsVisible = false;
             value.RightButtonText = "Build";
             value.ButtonRight = new Command(value.BuySpawningPool);
+            value.ButtonLeft = new Command(value.BuyAllSpawningPool);
             return value;
         }
 

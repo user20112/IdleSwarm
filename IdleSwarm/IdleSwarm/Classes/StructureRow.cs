@@ -477,6 +477,27 @@ namespace IdleSwarm.Droid.Classes
                 DronesRequired += (DronesRequired * IncreasePerBuy) / 100;
             }
         }
+        public void BuyAllSpawningPool()
+        {
+            if (Page.MineralValue >= (BigInteger)NumberCanAfford * (BigInteger)MineralsRequired && Page.VespeneValue >= (BigInteger)NumberCanAfford * (BigInteger)VespRequired && BigInteger.Parse(Page.Units[0].Count) >= NumberCanAfford * DronesRequired)
+            {
+                BigInteger numberCanAfford = NumberCanAfford;
+                Count = (BigInteger.Parse(Count) + numberCanAfford).ToString();
+                Page.MineralValue = (Page.MineralValue - numberCanAfford * MineralsRequired);
+                Page.VespeneValue = (Page.VespeneValue - numberCanAfford * VespRequired);
+                Page.Units[0].Count = (BigInteger.Parse(Page.Units[0].Count) - numberCanAfford * DronesRequired).ToString();
+                if (!Page.Things.UnitExists("Zergling"))
+                {
+                    Page.Units.Add(Page.Things.GetZergling()); foreach (UpgradeRow upgrade in Page.Things.ZerglingUpgrades)
+                    {
+                        Page.Upgrades.Add(upgrade);
+                    }
+                }
+                MineralsRequired += (MineralsRequired * IncreasePerBuy * numberCanAfford) / 100;
+                VespRequired += (VespRequired * IncreasePerBuy * numberCanAfford) / 100;
+                DronesRequired += (DronesRequired * IncreasePerBuy * numberCanAfford) / 100;
+            }
+        }
 
         public void BuyIBAllFunction()
         {

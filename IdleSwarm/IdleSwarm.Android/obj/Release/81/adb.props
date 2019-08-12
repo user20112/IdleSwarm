@@ -1,2 +1,2 @@
-AdbTarget=
+AdbTarget=-s VS988b6f149d8
 AdbOptions=
